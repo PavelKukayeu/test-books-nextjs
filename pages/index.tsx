@@ -1,8 +1,14 @@
 import Head from "next/head"
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import Link from "next/link"
 
 const Home: FC = () => {
+  useEffect(() => {
+    const VERSION = process.env.NEXT_PUBLIC_VERSION
+    if (VERSION) {
+      localStorage.setItem("VERSION", VERSION)
+    }
+  }, [])
   return (
     <div>
       <Head>
